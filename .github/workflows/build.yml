@@ -33,8 +33,11 @@ jobs:
           gradle-version: '9.3.1'
           cache-read-only: ${{ github.ref != 'refs/heads/main' }}
 
-      - name: Decode Debug Keystore
-        run: base64 -d debug.keystore.base64 > debug.keystore
+      - name: Ensure Debug Keystore Exists
+        run: |
+          if [ ! -f debug.keystore ]; then
+            keytool -genkey -v -keystore ./debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+          fi
 
       - name: Check Code Quality (Lint)
         run: gradle lintDebug --no-daemon --parallel
