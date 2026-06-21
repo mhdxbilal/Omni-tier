@@ -1,0 +1,6 @@
+{
+  "name": "OmniTier",
+  "description": "Next-generation, high-velocity web browser with native core engine and zero-trust backend.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
