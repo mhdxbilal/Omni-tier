@@ -15,14 +15,14 @@ import org.robolectric.annotation.GraphicsMode
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(qualifiers = RobolectricDeviceQualifiers.Pixel8, sdk = [36])
-class GreetingScreenshotTest {
+class OmniTierAppScreenshotTest {
 
   @get:Rule val composeTestRule = createComposeRule()
 
   @Test
-  fun greeting_screenshot() {
-    composeTestRule.setContent { MyApplicationTheme { Greeting("Robolectric") } }
+  fun omnitierapp_screenshot() {
+    composeTestRule.setContent { MyApplicationTheme { OmniTierApp() } }
 
-    composeTestRule.onRoot().captureRoboImage(filePath = "src/test/screenshots/greeting.png")
+    composeTestRule.onRoot().captureRoboImage(filePath = "src/test/screenshots/omnitierapp.png")
   }
 }
